@@ -77,21 +77,23 @@ bimserverImportDialogLogin = () ->
   # Call the REST api
   # TODO: Would be nice to find a more secure way to login (without using clear text)
   ($ '#bimserver-import-message-info').html "Sending login request..."
-  ($.ajax
-    username: encodeURIComponent user
-    password: encodeURIComponent pwd
-    #url: url + 'rest/login'
-    url: url + 'login.jsp'
-    data: 'username=' + (encodeURIComponent user) + '&password=' + (encodeURIComponent pwd))
-    .done (data, textStatus, jqXHR) -> 
-      ($ '#bimserver-import-message-info').html "Login request succeeded"
-      bimserverImportDialogShowTab2()
-      bimserverImportDialogRefresh()
-    .fail (jqXHR, textStatus, errorThrown) -> 
-      ($ '#bimserver-import-message-info').html ""
-      ($ '#bimserver-import-message-error').html "Login request failed"
-    .always (jqXHR, textStatus, errorThrown) -> 
-      ($ '#dialog-tab-bimserver1 input, #dialog-tab-bimserver1 button').removeAttr 'disabled'
+  #($.ajax
+  #  username: encodeURIComponent user
+  #  password: encodeURIComponent pwd
+  #  #url: url + 'rest/login'
+  #  url: url + 'login.jsp'
+  #  data: 'username=' + (encodeURIComponent user) + '&password=' + (encodeURIComponent pwd))
+  #  .done (data, textStatus, jqXHR) -> 
+  #    ($ '#bimserver-import-message-info').html "Login request succeeded"
+  #    bimserverImportDialogShowTab2()
+  #    bimserverImportDialogRefresh()
+  #  .fail (jqXHR, textStatus, errorThrown) -> 
+  #    ($ '#bimserver-import-message-info').html ""
+  #    ($ '#bimserver-import-message-error').html "Login request failed"
+  #  .always (jqXHR, textStatus, errorThrown) -> 
+  #    ($ '#dialog-tab-bimserver1 input, #dialog-tab-bimserver1 button').removeAttr 'disabled'
+  bimserverImportDialogShowTab2()
+  bimserverImportDialogRefresh()
 
   pwd = null
   return true

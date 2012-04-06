@@ -7,6 +7,25 @@ topmenuImportBimserver = (event) ->
 topmenuImportSceneJS = (event) ->
   fileImportDialogShow()
 
+topmenuImportSample = (event) ->
+  switch event.target.id
+    when 'top-menu-import-sample-1'
+      sampleUrl = "http://bimserver.github.com/bimsurfer-demo/static/models/Vogel-Gesamt.json"
+    when 'top-menu-import-sample-2'
+      sampleUrl = "http://bimserver.github.com/bimsurfer-demo/static/models/AC11-FZK-Haus.json"
+    else
+      return
+
+  ($.get sampleUrl, undefined, undefined, 'json')
+    .done (data, textStatus, jqXHR) -> 
+      try
+        loadScene data
+      catch error
+        console?.log? error
+    .fail (jqXHR, textStatus, errorThrown) -> 
+      console?.log? textStatus
+      return # TODO
+
 topmenuPerformanceQuality = (event) ->
   ($ event.target).addClass 'top-menu-activated'
   ($ '#top-menu-performance-performance').removeClass 'top-menu-activated'

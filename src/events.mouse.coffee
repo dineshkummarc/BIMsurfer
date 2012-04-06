@@ -13,9 +13,9 @@ mouseDown = (event) ->
     when 2 then state.viewport.mouse.middleDown = true
 
   # Pick the object under the mouse
-  if event.which == 1 # Left mouse button
-    coords = mouseCoordsWithinElement event
-    state.viewport.mouse.pickRecord = state.scene.pick coords[0], coords[1]
+  #if event.which == 1 # Left mouse button
+  #  coords = mouseCoordsWithinElement event
+  #  state.viewport.mouse.pickRecord = state.scene.pick coords[0], coords[1]
 
 mouseUp = (event) ->
   if not state.scene?  

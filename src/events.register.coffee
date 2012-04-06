@@ -32,6 +32,7 @@ registerControlEvents = () ->
 
   ($ '#top-menu-import-bimserver').click topmenuImportBimserver
   ($ '#top-menu-import-scenejs').click topmenuImportSceneJS
+  ($ '#top-menu-import-sample-1,#top-menu-import-sample-2').click topmenuImportSample
   ($ '#top-menu-performance-quality').click topmenuPerformanceQuality
   ($ '#top-menu-performance-performance').click topmenuPerformancePerformance
   ($ '#top-menu-mode-basic').click topmenuModeBasic
